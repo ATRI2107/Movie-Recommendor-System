@@ -4,7 +4,6 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from datetime import datetime
 from flask_login import LoginManager, UserMixin, login_user 
-import os
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
