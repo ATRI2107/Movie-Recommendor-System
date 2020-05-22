@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from datetime import datetime
 from flask_login import LoginManager, UserMixin, login_user 
+import os
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -100,7 +101,7 @@ def review():
 
 	class recommend_movies(object):
 	    def __init__(self):
-	        self.file = pd. read_csv('data//movies_metadata.csv')
+	        self.file = pd. read_csv('data/movies_metadata.csv')
 	        self.m = 0
 	        self.C = 0
 	        
@@ -158,7 +159,7 @@ def review():
 	    
 	    def get_reommended_movies(self,title):
 	        df = self.preprocessing()
-	        links_small = pd.read_csv('data//links_small.csv')
+	        links_small = pd.read_csv('data/links_small.csv')
 	        links_small = links_small[links_small['tmdbId'].notnull()]['tmdbId'].astype('int')
 	        df = df.drop([19730, 29503, 35587])
 	        df['id'] = df['id'].astype('int')
