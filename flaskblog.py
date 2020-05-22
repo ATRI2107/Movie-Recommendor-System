@@ -17,7 +17,7 @@ from nltk.stem.snowball import SnowballStemmer
 from nltk.stem.wordnet import WordNetLemmatizer
 from nltk.corpus import wordnet
 
-from urllib.request import Request, urlopen
+import urllib.request
 import json
 app = Flask(__name__)
 app.config['SECRET_KEY']='a8ca03f6bb27fb5d2e9543b0a5c0ded3'
@@ -78,8 +78,7 @@ def home():
 		mk=request.form['mk']
 		url='http://www.omdbapi.com/?apikey=34035a0a&type=movie&s='
 		url=url+str(mk)
-        req=Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-		json_obj=urlopen(req)
+		json_obj=urllib.request.urlopen(url)
 		data=json.load(json_obj)
 		data=data['Search']
 		return render_template('about.html',data=data)
